@@ -1,0 +1,4 @@
+vendor
+*.local.php
+*.local.md
+composer.lock
