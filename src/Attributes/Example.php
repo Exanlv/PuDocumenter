@@ -10,8 +10,8 @@ use Attribute;
 readonly class Example
 {
     public function __construct(
-        public string $title,
-        public string $description,
+        public ?string $title,
+        public ?string $description,
     ) {
     }
 }

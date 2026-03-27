@@ -12,8 +12,12 @@ class StdOutMarkdownPrinter implements PrinterInterface
         echo PHP_EOL;
 
         foreach ($page->examples as $example) {
-            echo '### ' . $example->title, PHP_EOL;
-            echo $example->description, PHP_EOL;
+            if ($example->title !== null) {
+                echo '### ' . $example->title, PHP_EOL;
+            }
+            if ($example->description !== null) {
+                echo $example->description, PHP_EOL;
+            }
             echo '```php', PHP_EOL;
             echo $example->code, PHP_EOL;
             echo '```', PHP_EOL;
@@ -21,7 +25,7 @@ class StdOutMarkdownPrinter implements PrinterInterface
         }
 
         if (!$lastPage) {
-            echo '---', PHP_EOL;
+            echo '---', PHP_EOL, PHP_EOL;
         }
     }
 }
