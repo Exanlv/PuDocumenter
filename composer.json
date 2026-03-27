@@ -1,7 +1,7 @@
 {
     "name": "exan/pudocumenter",
     "description": "Generate documentation based on PHPUnit tests",
-    "type": "project",
+    "type": "library",
     "require-dev": {
         "phpunit/phpunit": "^13.0",
         "symfony/var-dumper": "^8.0"
