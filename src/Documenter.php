@@ -98,6 +98,8 @@ class Documenter
             -1,
         );
 
+        $bodyLines = array_filter($bodyLines, fn (string $line) => !str_contains($line, '// @hide'));
+
         $bodyLines = array_map(function (string $line) {
             if (str_starts_with($line, "\t\t")) {
                 return (substr($line, 2));
@@ -111,6 +113,14 @@ class Documenter
 
             return $line;
         }, $bodyLines);
+
+        while (reset($bodyLines) === '') {
+            array_shift($bodyLines);
+        }
+
+        while (end($bodyLines) === '') {
+            array_pop($bodyLines);
+        }
 
         return implode(PHP_EOL, $bodyLines);
     }

@@ -25,4 +25,3 @@ for ($i = strlen($myVar) - 1; $i >= 0; $i--) {
 // And now this too, is reversed!
 static::assertEquals('eulav-tset', $reversed);
 ```
-

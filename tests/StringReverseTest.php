@@ -34,6 +34,8 @@ class StringReverseTest extends TestCase
     #[Test]
     public function it_can_do_it_manually()
     {
+
+
         $myVar = 'test-value';
         $reversed = '';
 
@@ -44,5 +46,8 @@ class StringReverseTest extends TestCase
 
         // And now this too, is reversed!
         static::assertEquals('eulav-tset', $reversed);
+
+        // @hide
+
     }
 }
