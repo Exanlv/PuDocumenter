@@ -36,6 +36,7 @@ class Documenter
 
         return new ParsedPage(
             $page->name,
+            $page->description,
             $this->getExamples($reflectionClass),
         );
     }

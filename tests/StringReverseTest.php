@@ -9,7 +9,7 @@ use Exan\Pudocumenter\Attributes\Page;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-#[Page('String reverse')]
+#[Page('String reverse', 'Reversing a string isn\'t, but I tend to use it as a mock implementation for some kind of hashing.')]
 class StringReverseTest extends TestCase
 {
     #[Example(

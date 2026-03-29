@@ -1,5 +1,7 @@
 ## String reverse
 
+Reversing a string isn't, but I tend to use it as a mock implementation for some kind of hashing.
+
 ### Using strrev()
 As you can see, there's a built-in PHP function to reverse a string!
 ```php

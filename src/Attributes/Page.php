@@ -10,7 +10,8 @@ use Attribute;
 readonly class Page
 {
     public function __construct(
-        public string $name
+        public string $name,
+        public ?string $description = null,
     ) {
     }
 }
