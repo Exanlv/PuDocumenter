@@ -1,3 +1,8 @@
+# Table of contents
+
+ - [String reverse](#string-reverse)
+     - [Using strrev()](#using-strrev)
+     - [Doing it manually](#doing-it-manually)
 ## String reverse
 
 Reversing a string isn't, but I tend to use it as a mock implementation for some kind of hashing.
