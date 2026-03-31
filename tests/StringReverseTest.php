@@ -6,6 +6,7 @@ namespace Tests;
 
 use Exan\Pudocumenter\Attributes\Example;
 use Exan\Pudocumenter\Attributes\Page;
+use Exan\Pudocumenter\Attributes\ShowUse;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -17,6 +18,8 @@ class StringReverseTest extends TestCase
         'As you can see, there\'s a built-in PHP function to reverse a string!'
     )]
     #[Test]
+    #[ShowUse(Example::class)]
+    #[ShowUse(Page::class)]
     public function it_can_use_strrev()
     {
         $myVar = 'test-value';

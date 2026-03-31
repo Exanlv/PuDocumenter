@@ -5,6 +5,9 @@ Reversing a string isn't, but I tend to use it as a mock implementation for some
 ### Using strrev()
 As you can see, there's a built-in PHP function to reverse a string!
 ```php
+use Exan\Pudocumenter\Attributes\Example;
+use Exan\Pudocumenter\Attributes\Page;
+
 $myVar = 'test-value';
 
 $myVar = strrev($myVar);

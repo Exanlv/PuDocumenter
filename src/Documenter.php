@@ -6,6 +6,8 @@ namespace Exan\Pudocumenter;
 
 use Exan\Pudocumenter\Attributes\Example;
 use Exan\Pudocumenter\Attributes\Page;
+use Exan\Pudocumenter\Attributes\ShowUse;
+use ReflectionAttribute;
 use ReflectionClass;
 use ReflectionMethod;
 use RuntimeException;
@@ -87,7 +89,21 @@ class Documenter
 
         $methodLines = array_slice($source, $startLine - 1, $length);
 
-        return $this->cleanupFunctionCode($methodLines);
+        $cleanedUp = $this->cleanupFunctionCode($methodLines);
+
+        $uses = $method->getAttributes(ShowUse::class);
+
+        if (count($uses) === 0) {
+            return $cleanedUp;
+        }
+
+        $formattedUses = array_map(function (ReflectionAttribute $attribute) {
+            /** @var ShowUse */
+            $instance = $attribute->newInstance();
+            return 'use ' . $instance->class . ';';
+        }, $uses);
+
+        return implode(PHP_EOL, $formattedUses) . PHP_EOL . PHP_EOL . $cleanedUp;
     }
 
     private function cleanupFunctionCode(array $lines): string
