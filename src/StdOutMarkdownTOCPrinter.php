@@ -10,6 +10,10 @@ class StdOutMarkdownTOCPrinter implements PrinterInterface
     {
         echo ' - [', $page->title, '](', $this->getLink($page->title), ')', PHP_EOL;
 
+        if (count($page->examples) === 1) {
+            return;
+        }
+
         foreach ($page->examples as $example) {
             if ($example->title === null) {
                 continue;
