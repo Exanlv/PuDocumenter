@@ -13,6 +13,7 @@ readonly class ParsedPage
     public function __construct(
         public string $title,
         public ?string $description,
+        public array $uses,
         public array $examples,
     ) {
     }

@@ -9,8 +9,10 @@ use Exan\Pudocumenter\Attributes\Page;
 use Exan\Pudocumenter\Attributes\ShowUse;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 
 #[Page('String reverse', 'Reversing a string isn\'t, but I tend to use it as a mock implementation for some kind of hashing.')]
+#[ShowUse(ReflectionClass::class)]
 class StringReverseTest extends TestCase
 {
     #[Example(
@@ -52,5 +54,15 @@ class StringReverseTest extends TestCase
 
         // @hide
 
+    }
+
+    #[Example(
+        'This is empty',
+        'But text can be shown!'
+    )]
+    #[Test]
+    public function empty_body()
+    {
+        // @hide
     }
 }

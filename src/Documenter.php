@@ -33,12 +33,21 @@ class Documenter
             throw new RuntimeException('Passed class is not a documentable class');
         }
 
+        $uses = $reflectionClass->getAttributes(ShowUse::class);
+
+        $formattedUses = array_map(function (ReflectionAttribute $attribute) {
+            /** @var ShowUse */
+            $instance = $attribute->newInstance();
+            return 'use ' . $instance->class . ';';
+        }, $uses);
+
         /** @var Page */
         $page = array_shift($pages)->newInstance();
 
         return new ParsedPage(
             $page->name,
             $page->description,
+            $formattedUses,
             $this->getExamples($reflectionClass),
         );
     }
